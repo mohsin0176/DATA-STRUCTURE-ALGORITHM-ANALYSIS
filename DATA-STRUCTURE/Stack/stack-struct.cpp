@@ -55,7 +55,7 @@ void display(){
     int i;
     if(isEmpty()){
         cout<<"STACK is EMPTY."<<endl;
-        return;
+        return ;
     }
     else
     {
