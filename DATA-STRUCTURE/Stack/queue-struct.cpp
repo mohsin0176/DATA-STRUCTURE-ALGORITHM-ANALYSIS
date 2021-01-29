@@ -4,7 +4,7 @@
 #define MAX 100
 
 using namespace std;
-int TOP;
+int front;int rear;
 struct Stack{
     int code;
 };
@@ -13,11 +13,11 @@ struct Stack data[MAX];
 
 void initStack()
 {
-     TOP=-1;
+     front=rear=-1;
 }
 int isEmpty()
 {
-    if( TOP==-1)
+    if( front==-1&&rear==-1)
     {
         return 1;
     }
@@ -30,7 +30,7 @@ int isEmpty()
 
 int isFull()
 {
-    if(TOP==MAX-1)
+    if(rear==MAX-1&&front==-1)
     {
         return 1;
     }
@@ -40,23 +40,26 @@ int isFull()
     }
 }
 
-int push(int code)
+int enqueue(int code)
 {
     if(isFull())
     {
       return 0;
     }
-    else if(TOP==-1)
+    else if(front==-1&&rear==-1)
     {
-        TOP++;
-        data[TOP].code=code;
-        return data[TOP].code;
+        front++;
+        rear++;
+        data[front].code=code;
+        data[front].code=data[rear].code;
+        return data[front].code;
+
     }
     else
     {
-        TOP++;
-        data[TOP].code=code;
-        return data[TOP].code;
+        rear++;
+        data[rear].code=code;
+        return data[rear].code;
     }
 
 }
@@ -68,7 +71,7 @@ void display(){
     }
     else
     {
-    for(i=0;i<=TOP;i++)
+    for(i=front;i<=rear;i++)
     {
         cout<<data[i].code<<endl;
     }
@@ -77,13 +80,13 @@ void display(){
 
 }
 
-int pop()
+int dequeue()
 {
 
     if(!isEmpty())
     {
-        int item=data[TOP].code;
-        TOP--;
+        int item=data[front].code;
+        front++;
         return item;
     }
     else
@@ -98,23 +101,23 @@ int main()
 
     int code;
     initStack();
-    push(100);
-    push(200);
-    push(300);
-    push(100);
-    push(200);
-    push(300);
-    push(100);
-    push(200);
-    push(300);
-    push(100);
-    push(200);
-    push(300);
-    pop();
-    pop();
-    pop();
+    enqueue(100);
+    enqueue(200);
+    enqueue(300);
+    enqueue(100);
+    enqueue(200);
+    enqueue(300);
+    enqueue(100);
+    enqueue(200);
+    enqueue(300);
+    enqueue(100);
+    enqueue(200);
+    enqueue(300);
+    dequeue();
+    dequeue();
+    dequeue();
     cin>>code;
-    push(code);
+    enqueue(code);
     display();
 
     return 0;
