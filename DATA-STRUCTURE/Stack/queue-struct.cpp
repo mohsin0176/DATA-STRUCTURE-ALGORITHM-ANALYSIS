@@ -5,13 +5,13 @@
 
 using namespace std;
 int front;int rear;
-struct Stack{
+struct Queue{
     int code;
 };
 
-struct Stack data[MAX];
+struct Queue data[MAX];
 
-void initStack()
+void initQueue()
 {
      front=rear=-1;
 }
@@ -64,7 +64,7 @@ int enqueue(int code)
 
 }
 
-void display(){
+int display(){
     int i;
     if(isEmpty()){
         return ;
@@ -100,7 +100,7 @@ int main()
 {
 
     int code;
-    initStack();
+    initQueue();
     enqueue(100);
     enqueue(200);
     enqueue(300);

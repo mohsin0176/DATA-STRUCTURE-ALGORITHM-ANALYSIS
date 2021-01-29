@@ -40,23 +40,25 @@ int isFull()
     }
 }
 
-int push(int code)
+void push(int code)
 {
     if(isFull())
     {
-      return 0;
+      return ;
     }
     else if(TOP==-1)
     {
         TOP++;
         data[TOP].code=code;
-        return data[TOP].code;
+        int x=data[TOP].code;
+        return x;
     }
     else
     {
         TOP++;
         data[TOP].code=code;
-        return data[TOP].code;
+        int y=data[TOP].code;
+        return y;
     }
 
 }
@@ -80,15 +82,16 @@ void display(){
 int pop()
 {
 
-    if(!isEmpty())
+    if(isEmpty())
+    {
+
+        return ;
+    }
+    else
     {
         int item=data[TOP].code;
         TOP--;
         return item;
-    }
-    else
-    {
-        return 0;
     }
 
 }
