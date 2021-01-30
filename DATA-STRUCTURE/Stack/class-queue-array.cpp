@@ -6,11 +6,11 @@
 using namespace std;
 
 class Queue{
-
+public:
 int front;
 int rear;
 int data[MAX];
-public:
+//public:
 Queue()
 {
 front=-1;
