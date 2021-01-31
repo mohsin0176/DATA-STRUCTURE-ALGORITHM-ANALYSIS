@@ -21,14 +21,15 @@ void print(Node *n)
 int main()
 {
 
-Node *head=NULL;
-Node *first=NULL;
-Node *second=NULL;
+ struct Node *head=NULL;
+struct Node *first=NULL;
+struct Node *second=NULL;
 
 
-head=new Node();
-first=new Node();
-second=new Node();
+head=(struct Node*)malloc(sizeof(struct Node));
+first=(struct Node*)malloc(sizeof(struct Node));
+second=(struct Node*)malloc(sizeof(struct Node));
+
 
 head->data=10;
 head->next=first;

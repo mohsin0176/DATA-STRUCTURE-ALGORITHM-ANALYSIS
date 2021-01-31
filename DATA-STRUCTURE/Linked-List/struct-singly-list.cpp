@@ -3,7 +3,7 @@
 using namespace std;
 struct Node
 {
-public:
+//public:
     int data;
     struct Node *next;
 };
@@ -21,7 +21,7 @@ void print(Node *n)
 int main()
 {
 
-struct Node *head=NULL;
+ Node *head=NULL;
 struct Node *first=NULL;
 struct Node *second=NULL;
 
