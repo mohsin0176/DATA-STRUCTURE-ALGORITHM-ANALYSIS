@@ -21,7 +21,7 @@ void print(Node *n)
 int main()
 {
 
- Node *head=NULL;
+struct Node *head=NULL;
 struct Node *first=NULL;
 struct Node *second=NULL;
 
