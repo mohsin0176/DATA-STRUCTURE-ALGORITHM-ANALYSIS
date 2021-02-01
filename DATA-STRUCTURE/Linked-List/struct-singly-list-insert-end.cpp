@@ -30,6 +30,12 @@ void insert(int data)
 
 }
 
+void dele()
+{
+    cout<<ptr->data<<endl;
+    ptr=ptr->next;
+}
+
 void print()
 {
 
@@ -50,6 +56,11 @@ int main()
     insert(20);
     insert(30);
     insert(40);
+    cout<<"Deleted:"<<endl;
+    dele();
+    dele();
+    dele();
+    cout<<endl<<"List:"<<endl;
     print();
     return 0;
 }
