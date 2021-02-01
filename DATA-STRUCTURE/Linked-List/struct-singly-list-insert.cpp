@@ -1,34 +1,39 @@
 #include<iostream>
 #include<cstdlib>
 using namespace std;
-class Node
+struct Node
 {
-public:
+//public:
     int data;
     struct Node *next;
 };
-  Node *head=NULL;
+struct Node *head=NULL;
+struct Node *start=NULL;
 void print()
 
 {
 
-    while(head!=NULL)
+    while(start!=NULL)
     {
-        cout<<head->data<<endl;
-        head=head->next;
+        cout<<start->data<<endl;
+        start=start->next;
     }
 }
 void insert(int data)
 {
-      Node *temp=NULL;
+    struct Node *temp;
 
     temp=new Node();
+    head->next=temp;
     temp->data=data;
-    temp->next=head;
+    temp->next=NULL;
     head=temp;
 }
 int main()
 {
+
+start=new Node();
+start=head;
 insert(100);
 insert(200);
 insert(300);
@@ -38,7 +43,7 @@ insert(600);
 insert(700);
 insert(800);
 
- print();
+  print();
 
 return 0;
 
