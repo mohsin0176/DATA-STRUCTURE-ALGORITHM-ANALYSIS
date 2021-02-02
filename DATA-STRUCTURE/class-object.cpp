@@ -21,6 +21,7 @@ class Car
         cout<<this->name<<endl;
         cout<<this->color<<endl;
         cout<<this->weight<<endl;
+        cout<<endl<<"---------------------"<<endl;
     }
 };
 int main()
