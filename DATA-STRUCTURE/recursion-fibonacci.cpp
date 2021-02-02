@@ -27,7 +27,7 @@ int fib(int n)
 int main()
 {
     cout<<fact(30)<<endl;
-    cout<<endl;
-    cout<<fib(30);
+    cout<<fib(30)<<endl;
+
     return 0;
 }
