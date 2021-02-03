@@ -8,31 +8,33 @@ struct Node
     struct Node *next;
 };
 
-struct Node *top;
+struct Node *start=NULL;
+struct Node *rear=NULL;
 
 
 int push(int data)
 {
     struct Node *temp;
     temp=new Node();
-    if(top==NULL)
+    if(start==NULL&&rear==NULL)
     {
         temp->data=data;
         temp->next=NULL;
-        top=temp;
+        start=temp;
+        rear=temp;
 
     }
     else
     {
 
          temp->data=data;
-         temp->next=top;
-         top=temp;
+         temp->next=NULL;
+         rear=temp;
     }
 }
 bool isEmpty()
 {
-    if(top==NULL)
+    if(start==NULL)
     {
         return true;
     }
@@ -51,8 +53,8 @@ int pop()
     if(!isEmpty())
     {
 
-       top->next=NULL;
-       top=top->next;
+       start->next=NULL;
+       start=start->next;
 
     }
     else
@@ -70,10 +72,10 @@ int display()
     else
     {
         cout<<"All Element is:"<<endl;
-        while(top!=NULL)
+        while(start!=NULL)
         {
-            cout<<top->data<<endl;
-            top=top->next;
+            cout<<start->data<<endl;
+            start=start->next;
         }
 
     }
@@ -83,7 +85,7 @@ int Peek()
 
     if (!isEmpty())
     {
-         return top->data;
+         return rear->data;
     }
 
     else
