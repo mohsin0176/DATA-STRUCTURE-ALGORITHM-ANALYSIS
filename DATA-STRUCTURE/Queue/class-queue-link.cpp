@@ -1,51 +1,53 @@
-#include<iostream>
+ #include<iostream>
 #include<bits/stdc++.h>
 using namespace std;
 
-class Queue
+class Node
 {
-    public:
-Queue()
-{
-    //public:
+public:
     int data;
-    Queue *next;
+    Node *next;
 };
-
-    int enqueue(int value);
+Node *start;
+Node *rear;
+Node *temp;
+class Queue
+ {
+    public:
+    int enqueue(int data);
     int dequeue();
     bool isFull();
     bool isEmpty();
-    int isPeek();
     void display();
+    int isPeek();
+
 
 };
-Queue *front;
-Queue *rear;
-int Queue::enqueue(int value)
+
+int Queue::enqueue(int data)
 {
-    Queue *temp;
+
     temp=new Node();
-    temp->data=value;
+    temp->data=data;
     temp->next=NULL;
-    if(front==NULL&&rear==NULL)
+    if(start==NULL&&rear==NULL)
     {
-        front=temp;
+        start=temp;
         rear=temp;
     }
     else
     {
-    rear->next=temp;
-    rear=temp;
-
+     rear->next=temp;
+     rear=temp;
     }
 }
 int Queue::dequeue()
 {
-    if(!isEmpty)
+    if(!isEmpty())
     {
-        cout<<front->data<<endl;
-        front=front->next;
+        cout<<start->data<<endl;
+        start=start->next;
+
     }
     else
     {
@@ -54,7 +56,7 @@ int Queue::dequeue()
 }
 bool Queue::isFull()
 {
-    if(front!=NULL)
+    if(start!=NULL)
     {
         return 1;
     }
@@ -65,7 +67,7 @@ bool Queue::isFull()
 }
 bool Queue::isEmpty()
 {
-    if(front==NULL&&rear==NULL)
+    if(start==NULL)
     {
         return 1;
     }
@@ -76,17 +78,28 @@ bool Queue::isEmpty()
 }
 int Queue::isPeek()
 {
-    if(rear!=NULL)
+    if(start=rear)
     {
-        return rear->data;
+        cout<<start->data;
+    }
+    else
+    {
+        cout<<rear->data;
     }
 }
-void Queue::dispaly()
+void Queue::display()
 {
-    while(front!=NULL)
+    if(start=rear)
     {
-        cout<<front->data<<endl;
-        front=front->next;
+        cout<<start->data<<endl;
+    }
+    else
+    {
+    while(start!=NULL)
+    {
+        cout<<start->data<<endl;
+        start=start->next;
+    }
     }
 }
 
@@ -99,9 +112,17 @@ int main()
     q.enqueue(40);
     q.enqueue(50);
     q.enqueue(60);
+    cout<<"Popped Elements Are:"<<endl;
     q.dequeue();
     q.dequeue();
     q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.enqueue(60);
+    cout<<"All Elements Are:"<<endl;
     q.display();
+    cout<<"Top Element is:"<<endl;
+    q.isPeek();
     return 0;
 }
