@@ -1,75 +1,97 @@
-#include<iostream>
-#include<bits/stdc++.h>
-using namespace std;
 
-struct Node
-{
+    #include<iostream>
+    #include<stdio.h>
+    #include<conio.h>
+    using namespace std;
+
+    struct node
+    {
     int data;
-    struct Node *next;
-};
+    node *next;
+    };
+    struct node *start;
+    struct node *rear;
+    struct node *temp;
 
-struct Node *start;
-struct Node *rear;
-
-
-void enqueue(int data)
-{
-
-    struct Node *temp;
-    temp=new Node();
-    temp->data=data;
-    temp->next=NULL;
-    if(start==NULL&&rear==NULL)
+    void enqueue(int data)
     {
 
-    start->next=temp;
-    rear=temp;
+        temp = new node();
+        temp->data=data;
+        temp->next=NULL;
+
+        if(start==NULL && rear==NULL)
+        {
+
+            start= temp;
+            rear=temp;
+
+
+        }
+
+        else
+
+        {
+
+            rear->next =temp;
+            rear = temp;
+
+
+
+        }
 
     }
-    else
+
+    int dequeue()
+
     {
-        rear->next = temp;
-        rear = temp;
+
+        if(start == NULL)
+        {
+        cout<<"empty queue\n";
+        }
+
+        else
+
+        {
+        start= start->next;
+        }
 
     }
 
-
-}
-
-
-
-void dequeue()
-{
-       start=start->next;
-       //start->next=NULL;
-
-}
-void display()
-{
-
-        cout<<"All Element is:"<<endl;
+    void display()
+    {
         while(start!=NULL)
         {
             cout<<start->data<<endl;
             start=start->next;
         }
+    }
 
+    int Peek()
+    {
+       cout<< rear->data;
+    }
 
-}
-int Peek()
-{
-
-return rear->data;
-}
 int main()
+
 {
-    enqueue(11);
-    enqueue(22);
-    enqueue(23);
-    cout<<"Top Element is:"<<endl<<Peek()<<endl;
-
-
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    enqueue(40);
+    enqueue(50);
+    enqueue(60);
+    enqueue(70);
+    enqueue(80);
+    dequeue();
+    dequeue();
+    dequeue();
+    dequeue();
+    display();
+    Peek();
 
 
     return 0;
+
 }
