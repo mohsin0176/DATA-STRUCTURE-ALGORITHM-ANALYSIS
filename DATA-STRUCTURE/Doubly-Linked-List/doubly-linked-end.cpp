@@ -10,22 +10,18 @@ void insert(int data) {
    struct Node *temp;
    temp = new Node();
    temp->data = data;
-   temp->prev = NULL;
-   temp->next = head;
+   temp->prev=head;
+   temp->next = NULL;
    if(head != NULL)
-   head->prev = temp ;
-   head = temp;
-
-
-
+   head->next=temp;
+   head=temp;
 
 }
 void display() {
-   struct Node* ptr;
-   ptr = head;
-   while(ptr != NULL) {
-      cout<< ptr->data <<" ";
-      ptr = ptr->next;
+
+   while(head != NULL) {
+      cout<< head->data <<" ";
+      head = head->prev;
    }
 }
 int main() {
