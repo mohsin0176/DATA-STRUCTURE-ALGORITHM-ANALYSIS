@@ -1,71 +1,38 @@
-#include<iostream>
-#include<bits/stdc++.h>
+#include <iostream>
 using namespace std;
-
-struct Node
-{
-    int data;
-    Node *next;
-
+struct Node {
+   int data;
+   struct Node *next;
 };
-
-void print(struct Node *n)
-{
-    while(n!=NULL)
-    {
-        cout<<n->data<<endl;
-        n=n->next;
-    }
-    cout<<endl;
+struct Node* head = NULL;
+void insert(int newdata) {
+   struct Node *newnode = (struct Node *)malloc(sizeof(struct Node));
+   struct Node *ptr = head;
+   newnode->data = newdata;
+   newnode->next = head;
+   if (head!= NULL) {
+      while (ptr->next != head)
+         ptr = ptr->next;
+      ptr->next = newnode;
+   } else
+      newnode->next = newnode;
+      head = newnode;
 }
-
-struct Node *head=NULL;
-struct Node *ptr=NULL;
-
-void insert(int data)
-{
-    struct Node *temp;
-    temp=new Node();
-
-    temp->data=data;
-    temp->next=head;
-
-    if(head!=NULL)
-    {
-        while(ptr->next!=head)
-        {
-            ptr=ptr->next;
-            ptr->next=temp;
-        }
-    }
-
-    else
-    {
-        temp->next=temp;
-        head=temp;
-    }
+void display() {
+   struct Node* ptr;
+   ptr = head;
+   do {
+      cout<<ptr->data <<" ";
+      ptr = ptr->next;
+   } while(ptr != head);
 }
- void display()
- {
-     ptr=head;
-     while(ptr!=head)
-     {
-         cout<<ptr->data;
-         ptr=ptr->next;
-     }
- }
-
-
-int main()
-{
-
-
-insert(10);
-insert(20);
-insert(30);
-
-display();
-
-return 0;
-
+int main() {
+   insert(3);
+   insert(1);
+   insert(7);
+   insert(2);
+   insert(9);
+   cout<<"The circular linked list is: ";
+   display();
+   return 0;
 }
