@@ -66,8 +66,5 @@ int main()
     del();
     del();
     display();
-
-
-
     return 0;
 }
