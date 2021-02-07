@@ -26,6 +26,7 @@ void insert(int data)
         head->next=tmp;
         tmp->next=ptr;
         head=tmp;
+        ptr=tmp;
     }
 }
 
@@ -47,6 +48,7 @@ int main()
    insert(40);
    insert(50);
    insert(60);
+
    display();
    return 0;
 }
