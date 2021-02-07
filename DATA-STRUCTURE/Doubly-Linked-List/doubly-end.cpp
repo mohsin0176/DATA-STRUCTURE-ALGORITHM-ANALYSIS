@@ -19,21 +19,22 @@ void insert(int data)
     tmp->next=NULL;
     tmp->prev=NULL;
 
-    if(head=NULL)
+    if(head==NULL)
     {
         head=tmp;
         ptr=tmp;
     }
     else
     {
-        tmp->prev=head;
         head->next=tmp;
+        tmp->prev=head;
         head=tmp;
     }
 }
 
 void display()
 {
+
     cout<<"All Elements are:"<<endl;
     while(ptr!=head)
     {
@@ -61,11 +62,9 @@ int main()
     insert(80);
     insert(90);
     insert(100);
-    display();
     del();
     del();
     del();
     display();
-
     return 0;
 }
