@@ -21,14 +21,18 @@ void insert(int data)
 
     if(head==NULL)
     {
+
         head=tmp;
         ptr=tmp;
     }
     else
     {
+
         head->prev=tmp;
         tmp->next=head;
         head=tmp;
+        ptr->next=head;
+        head->prev=ptr;
     }
 }
 

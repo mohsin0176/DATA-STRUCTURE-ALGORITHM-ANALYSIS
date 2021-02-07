@@ -29,6 +29,8 @@ void insert(int data)
         head->next=tmp;
         tmp->prev=head;
         head=tmp;
+        head->next=ptr;
+        ptr->prev=head;
     }
 }
 
