@@ -8,7 +8,7 @@ private:
 	int value;
 public:
 	Count():value(5){}
-    Count operator ++ ()
+    Count operator ++ (int)
         {
         Count temp;
         temp.value=++value;
@@ -24,7 +24,7 @@ int main()
 {
 
 	Count count1;
-	++count1;
+    count1++;
 	count1.display();
 
 
