@@ -15,7 +15,7 @@ template <class T>
  		n2=n2;
  	}
 
- 	void display()
+ 	T display()
  	{
  		cout<<n1<<endl<<n2<<endl;
 
@@ -39,7 +39,15 @@ int main()
  
  Cal<int> fun(3,2);
  Cal<float> fun1(2.2,1.3);
+ fun.add();
+ fun.sub();
+ fun.mul();
+ fun.divi();
  fun.display();
+ fun1.add();
+ fun1.sub();
+ fun1.mul();
+ fun1.divi();
  fun1.display();
 
 
